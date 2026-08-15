@@ -1,0 +1,1296 @@
+@import url('https://fonts.googleapis.com/css2?family=Grand+Hotel&family=Manrope:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap');
+
+/* =========================================================
+   ROOT
+========================================================= */
+
+:root {
+    --bg: #050507;
+    --bg-soft: #0a0a0d;
+    --card: #101014;
+    --card-hover: #15151b;
+
+    --white: #ffffff;
+    --text: #f3f3f5;
+    --muted: #9999a5;
+
+    --pink: #ff4fa3;
+    --pink-light: #ff8ac4;
+    --pink-dark: #d92f83;
+
+    --border: rgba(255, 255, 255, 0.09);
+    --pink-border: rgba(255, 79, 163, 0.35);
+}
+
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Manrope', sans-serif;
+    overflow-x: hidden;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* =========================================================
+   APP
+========================================================= */
+
+.app {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(circle at 80% 10%,
+            rgba(255, 79, 163, 0.10),
+            transparent 25%),
+        radial-gradient(circle at 10% 70%,
+            rgba(255, 79, 163, 0.06),
+            transparent 25%),
+        var(--bg);
+}
+
+/* =========================================================
+   SIDE BAR
+========================================================= */
+
+.side {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 72px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding: 24px 0;
+
+    background: rgba(5, 5, 7, 0.92);
+
+    border-right: 1px solid var(--border);
+
+    backdrop-filter: blur(15px);
+
+    z-index: 100;
+}
+
+.mark {
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid var(--pink);
+
+    padding: 9px 11px;
+
+    font-weight: 800;
+
+    transition: 0.3s ease;
+}
+
+.mark span {
+    color: var(--pink);
+}
+
+.mark:hover {
+    background: var(--pink);
+
+    color: #050507;
+
+    box-shadow:
+        0 0 25px rgba(255, 79, 163, 0.4);
+}
+
+.sideLine {
+    width: 25px;
+    height: 1px;
+
+    background: var(--pink);
+
+    margin: 32px 0 25px;
+}
+
+.sideText {
+    writing-mode: vertical-rl;
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.18em;
+
+    color: var(--muted);
+}
+
+.sideSocial {
+    margin-top: auto;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.sideSocial a {
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+
+    color: var(--muted);
+
+    transition: 0.3s;
+}
+
+.sideSocial a:hover {
+    color: var(--pink);
+}
+
+/* =========================================================
+   TOP NAVIGATION
+========================================================= */
+
+.topbar {
+    position: fixed;
+
+    left: 72px;
+    right: 0;
+    top: 0;
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0 6%;
+
+    background: rgba(5, 5, 7, 0.85);
+
+    border-bottom: 1px solid var(--border);
+
+    backdrop-filter: blur(18px);
+
+    z-index: 90;
+}
+
+.logo {
+    background: none;
+
+    border: none;
+
+    color: white;
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 12px;
+}
+
+.logo b {
+    color: var(--pink);
+}
+
+.topbar nav {
+    display: flex;
+
+    gap: 34px;
+}
+
+.topbar nav button {
+    position: relative;
+
+    background: transparent;
+
+    border: none;
+
+    color: var(--muted);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 10px;
+
+    transition: 0.3s;
+}
+
+.topbar nav button:hover {
+    color: white;
+}
+
+.topbar nav button::after {
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -8px;
+
+    width: 0;
+
+    height: 1px;
+
+    background: var(--pink);
+
+    transition: 0.3s;
+}
+
+.topbar nav button:hover::after {
+    width: 100%;
+}
+
+.menu {
+    display: none;
+
+    background: transparent;
+
+    color: white;
+
+    border: 1px solid var(--pink-border);
+
+    padding: 8px 12px;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    margin-left: 72px;
+
+    min-height: 100vh;
+
+    padding: 140px 8% 70px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.hero::before {
+    content: '';
+
+    position: absolute;
+
+    width: 500px;
+    height: 500px;
+
+    right: -200px;
+    top: 80px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 79, 163, 0.08);
+
+    filter: blur(100px);
+
+    pointer-events: none;
+}
+
+.heroTop {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+
+    letter-spacing: 0.12em;
+}
+
+.location {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+}
+
+/* =========================================================
+   HERO TITLE
+========================================================= */
+
+.heroTitle {
+    position: relative;
+
+    z-index: 2;
+
+    margin: auto 0;
+}
+
+.heroTitle>p {
+    color: var(--pink);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 11px;
+
+    letter-spacing: 0.16em;
+
+    margin-bottom: 28px;
+}
+
+/* =========================================================
+   CURSIVE NAME FONT
+   OLD INSTAGRAM / SCRIPT STYLE
+========================================================= */
+.heroTitle h1 {
+    font-family: "Playwrite NZ", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    font-size: clamp(75px, 11vw, 150px);
+
+    line-height: 0.9;
+
+    letter-spacing: 0.01em;
+
+    color: white;
+
+    text-shadow:
+        0 0 25px rgba(255, 255, 255, 0.03);
+}
+
+.heroTitle h1 i {
+    display: block;
+
+    font-family: "Playwrite NZ", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
+    color: var(--pink);
+
+    text-shadow:
+        0 0 30px rgba(255, 79, 163, 0.22);
+}
+
+/* =========================================================
+   HERO NAME + HIRE ME
+========================================================= */
+
+.heroNameRow {
+    display: flex;
+
+    align-items: center;
+
+    gap: 65px;
+}
+
+.hireBtn {
+    width: 125px;
+
+    height: 125px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 5px;
+
+    border-radius: 50%;
+
+    background: var(--pink);
+
+    color: #050507;
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    box-shadow:
+        0 0 30px rgba(255, 79, 163, 0.25);
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.hireBtn:hover {
+    transform: scale(1.08) rotate(-6deg);
+
+    background: white;
+
+    color: var(--pink);
+
+    box-shadow:
+        0 0 50px rgba(255, 79, 163, 0.45);
+}
+
+.heroTag {
+    margin-top: 32px;
+
+    color: white;
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 12px;
+
+    letter-spacing: 0.07em;
+}
+
+.heroTag span {
+    color: var(--pink);
+
+    padding: 0 10px;
+}
+
+/* =========================================================
+   HERO BOTTOM
+========================================================= */
+
+.heroBottom {
+    position: relative;
+
+    z-index: 2;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+}
+
+.heroBottom p {
+    max-width: 480px;
+
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+.circleBtn {
+    width: 105px;
+
+    height: 105px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--pink);
+
+    background: transparent;
+
+    color: white;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+
+    transition: 0.3s;
+}
+
+.circleBtn:hover {
+    background: var(--pink);
+
+    color: #050507;
+
+    transform: rotate(8deg);
+}
+
+.heroNumber {
+    position: absolute;
+
+    right: 7%;
+
+    bottom: 105px;
+
+    color: rgba(255, 255, 255, 0.055);
+
+    font-size: 100px;
+
+    font-weight: 800;
+
+    line-height: 0.7;
+
+    pointer-events: none;
+}
+
+.heroNumber small {
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+}
+
+/* =========================================================
+   COMMON SECTIONS
+========================================================= */
+
+.about,
+.skills,
+.experience,
+.contact {
+    margin-left: 72px;
+
+    padding: 110px 8%;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.sectionLabel {
+    color: var(--pink);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 10px;
+
+    letter-spacing: 0.16em;
+
+    margin-bottom: 65px;
+}
+
+/* =========================================================
+   ABOUT
+========================================================= */
+
+.aboutGrid {
+    display: grid;
+
+    grid-template-columns: 1fr 1.2fr;
+
+    gap: 10%;
+}
+
+.about h2,
+.workIntro h2,
+.skillHead h2,
+.contact h2 {
+    color: white;
+
+    font-size: clamp(55px, 7vw, 95px);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.06em;
+}
+
+.about h2 em,
+.workIntro h2 em,
+.skillHead h2 em,
+.contact h2 em {
+    color: var(--pink);
+
+    font-family: 'Grand Hotel', cursive;
+
+    font-style: normal;
+
+    font-weight: 400;
+
+    letter-spacing: 0;
+}
+
+.aboutCopy {
+    padding-top: 5px;
+}
+
+.aboutCopy p {
+    max-width: 650px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+.aboutCopy .lead {
+    color: white;
+
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    margin-bottom: 25px;
+}
+
+.aboutCopy b {
+    color: var(--pink);
+}
+
+.quick {
+    display: flex;
+
+    gap: 65px;
+
+    margin-top: 45px;
+
+    padding-top: 22px;
+
+    border-top: 1px solid var(--border);
+}
+
+.quick span {
+    color: white;
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 12px;
+}
+
+.quick small {
+    display: block;
+
+    color: var(--muted);
+
+    font-size: 8px;
+
+    margin-top: 5px;
+}
+
+/* =========================================================
+   PROJECTS
+========================================================= */
+
+.work {
+    margin-left: 72px;
+
+    padding: 110px 8%;
+
+    background: var(--bg-soft);
+
+    border-bottom: 1px solid var(--border);
+}
+
+.workIntro {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    margin-bottom: 60px;
+}
+
+.workIntro>span {
+    color: var(--muted);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+}
+
+.projects {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+.project {
+    position: relative;
+
+    min-height: 370px;
+
+    padding: 35px;
+
+    background:
+        linear-gradient(145deg,
+            rgba(255, 79, 163, 0.05),
+            transparent 50%),
+        var(--card);
+
+    border: 1px solid var(--border);
+
+    transition: 0.35s ease;
+}
+
+.project:hover {
+    transform: translateY(-6px);
+
+    border-color: var(--pink-border);
+
+    background: var(--card-hover);
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+.pTop {
+    display: flex;
+
+    justify-content: space-between;
+
+    color: var(--muted);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+}
+
+.project h3 {
+    margin-top: 60px;
+
+    color: white;
+
+    font-size: 29px;
+
+    line-height: 1.05;
+
+    letter-spacing: -0.04em;
+}
+
+.project p {
+    margin-top: 20px;
+
+    max-width: 600px;
+
+    color: var(--muted);
+
+    line-height: 1.7;
+}
+
+.tags {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin-top: 25px;
+}
+
+.tags span {
+    padding: 5px 8px;
+
+    border: 1px solid var(--pink-border);
+
+    color: var(--pink-light);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 8px;
+}
+
+.project a {
+    position: absolute;
+
+    right: 30px;
+
+    bottom: 30px;
+
+    color: var(--pink);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+
+    transition: 0.3s;
+}
+
+.project a:hover {
+    color: white;
+}
+
+/* =========================================================
+   SKILLS
+========================================================= */
+
+.skillHead {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10%;
+
+    align-items: end;
+
+    margin-bottom: 60px;
+}
+
+.skillHead p {
+    max-width: 430px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+.skillRows {
+    border-top: 1px solid var(--border);
+}
+
+.skillRow {
+    display: grid;
+
+    grid-template-columns: 70px 200px 1fr;
+
+    gap: 30px;
+
+    align-items: center;
+
+    padding: 25px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    transition: 0.25s;
+}
+
+.skillRow:hover {
+    padding-left: 10px;
+
+    border-color: var(--pink-border);
+}
+
+.skillRow>span {
+    color: var(--pink);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+}
+
+.skillRow b {
+    color: white;
+
+    font-size: 15px;
+}
+
+.skillRow p {
+    color: var(--muted);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 10px;
+}
+
+/* =========================================================
+   EXPERIENCE
+========================================================= */
+
+.experience {
+    background:
+        radial-gradient(circle at 80% 40%,
+            rgba(255, 79, 163, 0.09),
+            transparent 30%),
+        var(--bg-soft);
+}
+
+.expGrid {
+    display: grid;
+
+    grid-template-columns: 1.3fr 0.7fr;
+
+    gap: 10%;
+}
+
+.expMain>span,
+.expSide>div>span {
+    color: var(--pink);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 9px;
+}
+
+.expMain h2 {
+    margin: 25px 0;
+
+    color: white;
+
+    font-size: clamp(50px, 6vw, 82px);
+
+    line-height: 0.9;
+
+    letter-spacing: -0.06em;
+}
+
+.expMain h2 em {
+    color: var(--pink);
+
+    font-family: 'Grand Hotel', cursive;
+
+    font-style: normal;
+
+    font-weight: 400;
+}
+
+.expMain p {
+    max-width: 500px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+.expSide {
+    display: grid;
+
+    gap: 40px;
+
+    padding-left: 35px;
+
+    border-left: 1px solid var(--pink-border);
+}
+
+.expSide h3 {
+    margin-top: 12px;
+
+    color: white;
+
+    font-size: 20px;
+}
+
+.expSide p {
+    margin-top: 12px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+
+    line-height: 1.7;
+}
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact {
+    display: grid;
+
+    grid-template-columns: 0.5fr 1.2fr 1fr;
+
+    gap: 50px;
+
+    align-items: end;
+}
+
+.contact h2 {
+    grid-column: 2 / 4;
+}
+
+.contact>p {
+    grid-column: 2;
+
+    max-width: 430px;
+
+    color: var(--muted);
+
+    line-height: 1.8;
+}
+
+.contactLinks {
+    grid-column: 2 / 4;
+
+    margin-top: 20px;
+
+    border-top: 1px solid var(--border);
+}
+
+.contactLinks a {
+    display: flex;
+
+    align-items: center;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid var(--border);
+
+    color: white;
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 11px;
+
+    transition: 0.25s;
+}
+
+.contactLinks a:hover {
+    padding-left: 10px;
+
+    color: var(--pink);
+}
+
+.contactLinks a:last-child {
+    margin-left: auto;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+    margin-left: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 28px 8%;
+
+    color: var(--muted);
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   RESUME BUTTON
+========================================================= */
+
+.resumeBtn {
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 14px 24px;
+
+    background: #ff4da6;
+
+    color: #050505;
+
+    border: 1px solid #ff4da6;
+
+    border-radius: 6px;
+
+    font-family: 'DM Mono', monospace;
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.08em;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.resumeBtn:hover {
+    background: #ffffff;
+
+    color: #ff4da6;
+
+    border-color: #ffffff;
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 10px 30px rgba(255, 77, 166, 0.3);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .side {
+        display: none;
+    }
+
+    .topbar {
+        left: 0;
+    }
+
+    .topbar nav {
+        display: none;
+
+        position: absolute;
+
+        left: 0;
+        right: 0;
+        top: 72px;
+
+        flex-direction: column;
+
+        gap: 25px;
+
+        padding: 25px;
+
+        background: #08080b;
+
+        border-bottom: 1px solid var(--border);
+    }
+
+    .topbar nav.open {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .hero,
+    .about,
+    .work,
+    .skills,
+    .experience,
+    .contact {
+        margin-left: 0;
+
+        padding-left: 6%;
+
+        padding-right: 6%;
+    }
+
+    .hero {
+        padding-top: 120px;
+    }
+
+    .heroNameRow {
+        display: block;
+    }
+
+    .hireBtn {
+        margin-top: 35px;
+
+        width: 105px;
+
+        height: 105px;
+    }
+
+    .heroTitle h1 {
+        font-size: 20vw;
+    }
+
+    .aboutGrid,
+    .skillHead,
+    .expGrid,
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+
+    .contact h2,
+    .contact>p,
+    .contactLinks {
+        grid-column: 1;
+    }
+
+    .skillRow {
+        grid-template-columns: 50px 120px 1fr;
+
+        gap: 15px;
+    }
+
+    .quick {
+        gap: 25px;
+
+        flex-wrap: wrap;
+    }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 520px) {
+
+    .heroTop .location {
+        display: none;
+    }
+
+    .heroTitle h1 {
+        font-size: 23vw;
+    }
+
+    .heroBottom {
+        display: block;
+    }
+
+    .heroNumber {
+        display: none;
+    }
+
+    .circleBtn {
+        margin-top: 25px;
+    }
+
+    .project {
+        min-height: 390px;
+    }
+
+    .project h3 {
+        font-size: 25px;
+    }
+
+    .skillRow {
+        grid-template-columns: 1fr;
+    }
+
+    .skillRow>span {
+        display: none;
+    }
+
+    footer {
+        margin-left: 0;
+
+        padding: 25px 6%;
+
+        flex-wrap: wrap;
+
+        gap: 15px;
+    }
+}
